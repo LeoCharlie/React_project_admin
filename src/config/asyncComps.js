@@ -1,3 +1,4 @@
+// 所有组件都在此引入
 import { lazy } from "react";
 
 const Admin = () => lazy(() => import("@/pages/Admin"));
@@ -12,8 +13,11 @@ const Chapter = () => lazy(() => import("@/pages/Edu/Chapter"));
 const Comment = () => lazy(() => import("@/pages/Edu/Comment"));
 const Course = () => lazy(() => import("@/pages/Edu/Course"));
 const Teacher = () => lazy(() => import("@/pages/Edu/Teacher"));
+const Subject = () => lazy(() => import("@/pages/Edu/Subject"))
+const AddSubject = () => lazy(() => import("@/pages/Edu/Subject/conponents/AddSubject"))
 const Settings = () => lazy(() => import("@/pages/User/Settings"));
 const Center = () => lazy(() => import("@/pages/User/Center"));
+
 
 export default {
   Admin,
@@ -28,6 +32,8 @@ export default {
   Comment,
   Course,
   Teacher,
+  Subject,
+  AddSubject,
   Settings,
   Center,
 };

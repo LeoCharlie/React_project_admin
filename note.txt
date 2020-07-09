@@ -1,0 +1,43 @@
+1.安装数据库
+        所需文件：react项目_stu\files\MongoDB\mongodb_4.0_64位.msi
+        要求：关闭一切电脑上的安全软件
+        备注：尽量不更改安装位置，大概占用400MB空间左右
+        如何查看数据库是否处于运行状态：
+        win + r，输入：services.msc，找到MongoDB server，处于【正在运行】
+2.启动项目服务器：
+        1.进入react_server,执行yarn，安装所有依赖。（全局：npm，局部：yarn）
+        2.执行yarn start，运行服务器
+3.启动项目：
+        1.进入react_admin,执行yarn，安装所有依赖。（全局：npm，局部：yarn）
+        2.清空浏览器的cookie-------3000
+        3.进入react_admin,执行yarn start
+4.导入数据：
+        初始化服务器端数据：借助Studio-3T导入数据：
+            导入：ddbs(需要导入数据库)文件夹下的所有json文件
+5.演示项目
+6.简单分析项目文件
+    jsconfig.json: vscode的配置文件
+    config-overrides.js: 扩展webpack配置
+    api: 定义接口请求的文件--按照功能点进行拆分的
+    assets：公共资源文件(样式、图片)
+    utils:工具函数文件，二次封装axios等
+    components：可复用组件
+    pages：路由组件
+    config: 配置文件
+        asyncComps.js懒加载 
+        icon.js图标 
+        route.js路由配置
+        没有登录的话，只能访问login和404页面，其他页面由后台控制。
+    layouts：整体布局模块，每个页面都会用到的固有布局，分为：私有的、公开的
+	locales：国际化的配置
+	redux：redux状态管理
+7.添加一个菜单的流程：
+    1.在src/pages/Edu 下新建Subejct，里面编写index.jsx
+    2.在config/asyncComps.js 中引入上一步编写的Subject组件，随后暴露
+    3.在系统页面：权限管理 => 菜单管理 => 教育管理 => 加号
+        菜单名称：课程分类管理  
+        访问路径: /subject/list
+        组件路径：Subject
+    4.给指定角色分配菜单权限(让菜单有人可以访问)
+        找到指定角色，点击“小齿轮”，勾选上刚才添加的菜单，随后刷新页面。
+8.课程分类_静态组件

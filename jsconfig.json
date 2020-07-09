@@ -1,8 +1,8 @@
 {
 	"compilerOptions": {
 			"baseUrl": "./",
-			"experimentalDecorators":true, // 支持装饰器语法
-			"paths": {				//@提示路径
+			"experimentalDecorators":true, 
+			"paths": {				
 				"@/*": ["src/*"]
 			}
 	},
