@@ -2,7 +2,7 @@ import {reqChapterByCourseId} from '@/api/edu/chapter'
 import {GET_CHAPTER_LIST,GET_LESSON_LIST_BY_CHAPTER} from './constants'
 import {reqAllLessonByChapter} from '@/api/edu/lesson'//引入请求接口
 
-const getChapterListSync = (chapterInfo)=>({
+export const getChapterListSync = (chapterInfo)=>({
 	type:GET_CHAPTER_LIST,
 	data:chapterInfo
 })

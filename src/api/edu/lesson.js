@@ -10,3 +10,11 @@ export function reqAllLessonByChapter(chapterId) {
     method: "GET",
   });
 }
+// 给某个章节添加课时
+export function reqAddLesson({chapterId,title,free,video}) {
+  return request({
+		url: `${BASE_URL}/save`,
+		data:{chapterId,title,free,video},
+    method: "POST",
+  });
+}

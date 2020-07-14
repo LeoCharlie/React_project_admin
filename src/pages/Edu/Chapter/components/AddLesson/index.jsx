@@ -1,12 +1,16 @@
 import React, { Component } from 'react'
-import {Card,Button,Form,Input,Switch } from 'antd'
+import {Card,Button,Form,Input,Switch,message } from 'antd'
 import {ArrowLeftOutlined} from '@ant-design/icons';
 import Upload from '@/components/UpLoad'
+import {reqAddLesson} from '@/api/edu/lesson'
 const {Item} = Form
 export default class AddLesson extends Component {
 
-    handleFinish = (values)=>{
-		console.log(values);
+    handleFinish = async (values)=>{
+		values.chapterId = this.props.history.location.state
+		await reqAddLesson(values)
+		message.success('课时添加成功！')
+		this.props.history.replace('/edu/chapter/list')
 	}
     render() {
         return (
@@ -29,7 +33,7 @@ export default class AddLesson extends Component {
                 >
                     <Item 
                         label="课时名称"
-                        name="name"
+                        name="title"
                         rules={[{required:true,message:"必须输入"}]}>
                         <Input></Input>
                     </Item>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {Card,Button,Alert,Table,Tooltip,Modal} from 'antd'
-import {getLessonListByChapter} from '@/pages/Edu/Chapter/redux'
+import {getLessonListByChapter,getChapterListSync} from '@/pages/Edu/Chapter/redux'
 import {
 	PlusOutlined,
 	FullscreenOutlined,
@@ -23,7 +23,7 @@ import {withRouter} from 'react-router-dom'
 	state=>({
 		chapterInfo:state.chapterInfo
 	}),
-	{getLessonListByChapter}
+	{getLessonListByChapter,getChapterListSync}
 )
 @withRouter
 class List extends Component {
@@ -47,6 +47,10 @@ class List extends Component {
 			const {isFull} = this.state
 			this.setState({isFull:!isFull})
 		})
+	}
+	componentWillUnmount(){
+		PubSub.unsubscribe('clearExpandedIds')
+		this.props.getChapterListSync({total:0,items:[]})
 	}
 	handleExpanded = (expandedIds)=>{
 		//从状态中获取expandedKeys
@@ -166,6 +170,11 @@ class List extends Component {
 						expandable={{ //配置展开属性
 							onExpandedRowsChange:this.handleExpanded,
 							expandedRowKeys:expandedIds
+						}}
+						rowSelection={{
+							onChange:(a,b)=>console.log('onChange',a),
+							// onSelect:(a,b,c,d)=>console.log(a,b,c,d),
+							// onSelectAll:(a,b,c)=>console.log(a,b,c)
 						}}
 					/>
 				</Card>

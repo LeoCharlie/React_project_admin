@@ -1,8 +1,9 @@
 import chapterInfo from './reducer'
-import {getChapterList,getLessonListByChapter} from './actions'
+import {getChapterList,getLessonListByChapter,getChapterListSync} from './actions'
 
 export {
     chapterInfo,
     getChapterList,
-    getLessonListByChapter
+    getLessonListByChapter,
+    getChapterListSync
 }
