@@ -35,3 +35,10 @@ return request({
     method: "DELETE",
 });
 }
+// 获取所有课程一级分类数据
+export function reqAllNo1Subject() {
+    return request({
+      url: `${BASE_URL}`,
+      method: "GET",
+    });
+}

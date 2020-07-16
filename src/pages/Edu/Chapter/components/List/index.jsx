@@ -98,7 +98,7 @@ class List extends Component {
 					title: '视频', 
 					//dataIndex: 'video', 
 					key: 'video',
-					render:(item)=> 'video' in item ? 
+					render:(item)=> item.video ? 
 					<Button onClick={()=>this.showVideo(item)} icon={<EyeOutlined />}></Button> : ''
 				},
 				{ 

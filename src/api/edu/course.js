@@ -10,3 +10,11 @@ export function reqAllCourse() {
     method: "GET",
   });
 }
+//查询课程
+export function reqSearchCourse({page=1,limit=5,teacherId,subjectId,subjectParentId,title}) {
+  return request({
+		url: `${BASE_URL}/${page}/${limit}`,
+		params:{teacherId,subjectId,subjectParentId,title},
+    method: "GET",
+  });
+}
